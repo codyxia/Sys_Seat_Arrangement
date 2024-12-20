@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>学生座位排序系统</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>学生座位排序系统</h1>
+        
+        <div class="controls">
+            <div class="file-input">
+                <input type="file" id="fileInput" accept=".xlsx,.xls,.csv">
+                <label for="fileInput">选择学生数据文件</label>
+            </div>
+            
+            <div class="seats-config">
+                <label for="seatsPerRow">每排座位数：</label>
+                <input type="number" id="seatsPerRow" min="1" value="6">
+                <button onclick="arrangeSeatsByRules()">生成座位表</button>
+            </div>
+            
+            <button id="downloadBtn" onclick="downloadSeatingChart()">下载座位图</button>
+        </div>
+
+        <div id="seatingChart" class="seating-chart">
+            <!-- 座位将在这里动态生成 -->
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
